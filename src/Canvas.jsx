@@ -107,6 +107,16 @@ export default function Canvas({ tool, style }) {
     redraw();
   };
 
+  const handleWheel = (e) => {
+    const selectedShape = shapes.find((shape) => shape.selected);
+    if (!selectedShape) return;
+
+    e.preventDefault();
+    const factor = e.deltaY < 0 ? 1.1 : 0.9;
+    selectedShape.scale(factor);
+    setShapes([...shapes]);
+  };
+
   return (
     <canvas
       ref={canvasRef}
@@ -117,6 +127,7 @@ export default function Canvas({ tool, style }) {
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
       onClick={handleClick}
+      onWheel={handleWheel}
     />
   );
 }

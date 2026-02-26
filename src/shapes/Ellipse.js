@@ -37,7 +37,8 @@ export default class Ellipse extends Shape {
   }
 
   scale(factor) {
-    this.rx *= factor;
-    this.ry *= factor;
+    const minRadius = 5;
+    this.rx = Math.max(this.rx * factor, minRadius);
+    this.ry = Math.max(this.ry * factor, minRadius);
   }
 }
