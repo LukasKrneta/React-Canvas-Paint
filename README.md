@@ -73,6 +73,7 @@ Generirani build nalazi se u `dist/` mapi.
 4. Podesi debljinu linije pomoću **Size** klizača.
 5. Crtaj po bijelom canvas području.
 6. Klik na postojeći oblik označava ga (plavi isprekidani bounding box kod oblika koji ga crtaju).
+7. Nakon označavanja oblika (line ili ellipse), koristi kotačić miša za povećavanje/smanjivanje.
 
 ---
 

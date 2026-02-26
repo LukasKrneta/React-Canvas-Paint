@@ -39,7 +39,15 @@ export default class Line extends Shape {
   }
 
   scale(factor) {
-    this.x2 = this.x1 + (this.x2 - this.x1) * factor;
-    this.y2 = this.y1 + (this.y2 - this.y1) * factor;
+    const minLength = 10;
+    const dx = this.x2 - this.x1;
+    const dy = this.y2 - this.y1;
+    const currentLength = Math.hypot(dx, dy) || 1;
+    const targetLength = Math.max(currentLength * factor, minLength);
+    const normalizedDx = dx / currentLength;
+    const normalizedDy = dy / currentLength;
+
+    this.x2 = this.x1 + normalizedDx * targetLength;
+    this.y2 = this.y1 + normalizedDy * targetLength;
   }
 }
